@@ -12,6 +12,11 @@ public class Sistema
     [Key]
     public int SistemaId { get; set; }
 
+
+    [Required(ErrorMessage = "Ingrese un nombre valido")]
+    [RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$", ErrorMessage = "El nombre del sistema solo debe contener letras.")]
+    public string Nombre { get; set; }
+
     [Required(ErrorMessage = "Ingrese una descripcion valido")]
     [RegularExpression(@"^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$", ErrorMessage = "La descripcion del sistema solo debe contener letras.")]
 
