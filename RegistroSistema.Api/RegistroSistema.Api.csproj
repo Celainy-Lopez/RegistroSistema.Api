@@ -17,4 +17,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Sistemas.Data\Sistemas.Data.csproj" />
+    <ProjectReference Include="..\Sistemas.Services\Sistemas.Services.csproj" />
+  </ItemGroup>
+
 </Project>
