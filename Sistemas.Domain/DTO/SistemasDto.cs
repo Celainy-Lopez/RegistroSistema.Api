@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Sistemas.Domain.DTO
 {
-    internal class SistemasDto
+    public class SistemasDto
     {
+        public int SistemaId { get; set; }
+
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
+
+        public double Costo { get; set; }
     }
 }
