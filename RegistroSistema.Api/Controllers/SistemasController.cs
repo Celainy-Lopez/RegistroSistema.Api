@@ -16,7 +16,7 @@ namespace RegistroSistema.Api.Controllers
     [Route("api/[controller]")]
     [ApiController]
 
-    public class SistemaController(ISistemasService sistemaService) : ControllerBase
+    public class SistemasController(ISistemasService sistemaService) : ControllerBase
     {
         // GET: api/Sistemas
         [HttpGet]
