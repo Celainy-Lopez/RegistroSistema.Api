@@ -45,7 +45,7 @@ public class UsuariosController(IUsuariosService usuariosService) : ControllerBa
     {
         await usuariosService.Guardar(usuariosDto);
 
-        return CreatedAtAction("GetClientes", new { id = usuariosDto.UsuarioId }, usuariosDto);
+        return CreatedAtAction("GetUsuarios", new { id = usuariosDto.UsuarioId }, usuariosDto);
     }
 
     // DELETE: api/Usuarios/5
