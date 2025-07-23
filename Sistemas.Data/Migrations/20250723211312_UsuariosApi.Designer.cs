@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sistemas.Data.Context;
 
@@ -10,9 +11,11 @@ using Sistemas.Data.Context;
 namespace Sistemas.Data.Migrations
 {
     [DbContext(typeof(SistemasContext))]
-    partial class SistemasContextModelSnapshot : ModelSnapshot
+    [Migration("20250723211312_UsuariosApi")]
+    partial class UsuariosApi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

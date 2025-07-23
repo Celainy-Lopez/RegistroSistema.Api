@@ -5,7 +5,7 @@
 namespace Sistemas.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class TecnicosApi : Migration
+    public partial class UsuariosApi : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -26,17 +26,17 @@ namespace Sistemas.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Tecnico",
+                name: "Usuario",
                 columns: table => new
                 {
-                    TecnicoId = table.Column<int>(type: "int", nullable: false)
+                    UsuariaId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Sueldo = table.Column<double>(type: "float", nullable: false)
+                    Balance = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Tecnico", x => x.TecnicoId);
+                    table.PrimaryKey("PK_Usuario", x => x.UsuariaId);
                 });
         }
 
@@ -47,7 +47,7 @@ namespace Sistemas.Data.Migrations
                 name: "Sistemas");
 
             migrationBuilder.DropTable(
-                name: "Tecnico");
+                name: "Usuario");
         }
     }
 }
