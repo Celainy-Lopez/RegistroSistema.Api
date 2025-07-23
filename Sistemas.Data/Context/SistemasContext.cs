@@ -13,5 +13,5 @@ public class SistemasContext : DbContext
     public SistemasContext(DbContextOptions<SistemasContext> options) : base(options) { }
     public DbSet<Sistema> Sistemas { get; set; }
 
-    public DbSet<Tecnicos> Tecnicos { get; set; }
+    public DbSet<Tecnicos> Tecnico { get; set; }
 }

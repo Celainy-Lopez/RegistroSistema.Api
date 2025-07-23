@@ -16,7 +16,7 @@ public class TecnicosServices(IDbContextFactory<SistemasContext> DbFactory) : IT
     public async Task<TecnicosDto> Buscar(int id)
     {
         await using var contexto = await DbFactory.CreateDbContextAsync();
-        var tecnicos = await contexto.Tecnicos
+        var tecnicos = await contexto.Tecnico
             .Where(e => e.TecnicoId == id)
             .Select(p => new TecnicosDto()
             {
@@ -31,7 +31,7 @@ public class TecnicosServices(IDbContextFactory<SistemasContext> DbFactory) : IT
     public async Task<bool> Eliminar(int tecnicoId)
     {
         await using var contexto = await DbFactory.CreateDbContextAsync();
-        return await contexto.Tecnicos
+        return await contexto.Tecnico
             .Where(e => e.TecnicoId == tecnicoId)
             .ExecuteDeleteAsync() > 0;
     }
@@ -39,7 +39,7 @@ public class TecnicosServices(IDbContextFactory<SistemasContext> DbFactory) : IT
     public async Task<bool> ExisteTecnicos(int id, string nombres)
     {
         await using var contexto = await DbFactory.CreateDbContextAsync();
-        return await contexto.Tecnicos
+        return await contexto.Tecnico
             .AnyAsync(e => e.TecnicoId != id && e.Nombre.ToLower().Equals(nombres.ToLower()));
     }
 
@@ -52,7 +52,7 @@ public class TecnicosServices(IDbContextFactory<SistemasContext> DbFactory) : IT
             Nombre = tecnicosDto.Nombre,
             Sueldo = tecnicosDto.Sueldo
         };
-        contexto.Tecnicos.Add(tecnico);
+        contexto.Tecnico.Add(tecnico);
         var guardo = await contexto.SaveChangesAsync() > 0;
         tecnicosDto.TecnicoId = tecnico.TecnicoId;
         return guardo;
@@ -75,7 +75,7 @@ public class TecnicosServices(IDbContextFactory<SistemasContext> DbFactory) : IT
     private async Task<bool> Existe(int id)
     {
         await using var contexto = await DbFactory.CreateDbContextAsync();
-        return await contexto.Tecnicos
+        return await contexto.Tecnico
             .AnyAsync(e => e.TecnicoId == id);
     }
 
@@ -90,7 +90,7 @@ public class TecnicosServices(IDbContextFactory<SistemasContext> DbFactory) : IT
     public async Task<List<TecnicosDto>> Listar(Expression<Func<TecnicosDto, bool>> criterio)
     {
         await using var contexto = await DbFactory.CreateDbContextAsync();
-        return await contexto.Tecnicos.Select(p => new TecnicosDto()
+        return await contexto.Tecnico.Select(p => new TecnicosDto()
         {
             TecnicoId = p.TecnicoId,
             Nombre = p.Nombre,
