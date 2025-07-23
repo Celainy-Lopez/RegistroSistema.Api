@@ -46,7 +46,7 @@ public class TecnicosServices(IDbContextFactory<SistemasContext> DbFactory) : IT
     private async Task<bool> Insertar(TecnicosDto tecnicosDto)
     {
         await using var contexto = await DbFactory.CreateDbContextAsync();
-        var tecnico = new Data.Models.Tecnico()
+        var tecnico = new Data.Models.Tecnicos()
         {
 
             Nombre = tecnicosDto.Nombre,
@@ -61,7 +61,7 @@ public class TecnicosServices(IDbContextFactory<SistemasContext> DbFactory) : IT
     private async Task<bool> Modificar(TecnicosDto tecnicosDto)
     {
         await using var contexto = await DbFactory.CreateDbContextAsync();
-        var tecnico = new Data.Models.Tecnico()
+        var tecnico = new Data.Models.Tecnicos()
         {
             TecnicoId = tecnicosDto.TecnicoId,
             Nombre = tecnicosDto.Nombre,

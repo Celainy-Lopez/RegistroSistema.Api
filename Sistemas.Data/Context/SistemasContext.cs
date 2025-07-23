@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Sistemas.Data.Models;
+
 namespace Sistemas.Data.Context;
 
 public class SistemasContext : DbContext
@@ -12,5 +13,5 @@ public class SistemasContext : DbContext
     public SistemasContext(DbContextOptions<SistemasContext> options) : base(options) { }
     public DbSet<Sistema> Sistemas { get; set; }
 
-    public DbSet<Tecnico> Tecnicos { get; set; }
+    public DbSet<Tecnicos> Tecnicos { get; set; }
 }

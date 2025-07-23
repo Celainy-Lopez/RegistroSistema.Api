@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sistemas.Data.Models;
 
-public class Tecnico
+public class Tecnicos
 {
     [Key]
     public int TecnicoId { get; set; }

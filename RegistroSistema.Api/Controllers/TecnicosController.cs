@@ -41,7 +41,7 @@ public class TecnicosController(ITecnicosService tecnicosService) : ControllerBa
     // POST: api/Tecnicos
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPost]
-    public async Task<ActionResult<Tecnico>> PostTecnicos(TecnicosDto tecnicosDto)
+    public async Task<ActionResult<Tecnicos>> PostTecnicos(TecnicosDto tecnicosDto)
     {
         await tecnicosService.Guardar(tecnicosDto);
 
