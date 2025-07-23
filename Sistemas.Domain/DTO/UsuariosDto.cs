@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Sistemas.Domain.DTO;
 
-public class TecnicosDto
+public class UsuariosDto
 {
-    public int TecnicoId { get; set; }
-
+    public int UsuarioId { get; set; }
     public string? Nombre { get; set; }
-
-    public double Sueldo { get; set; }
+    public double Balance { get; set; }
 }

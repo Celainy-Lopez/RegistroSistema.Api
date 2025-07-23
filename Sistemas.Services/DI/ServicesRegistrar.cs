@@ -15,7 +15,7 @@ public static class ServicesRegistrar
     {
         services.RegisterDbContextFactory();
         services.AddScoped<ISistemasService, SistemasService>();
-        services.AddScoped<ITecnicosService, TecnicosServices>();
+        services.AddScoped<IUsuariosService, UsuariosService>();
         return services;
     }
 
