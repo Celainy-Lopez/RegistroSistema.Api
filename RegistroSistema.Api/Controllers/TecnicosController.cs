@@ -1,0 +1,58 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Sistemas.Abstractions;
+using Sistemas.Data.Models;
+using Sistemas.Domain.DTO;
+
+namespace RegistroSistema.Api.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
+public class TecnicosController(ITecnicosService tecnicosService) : ControllerBase
+{
+
+    // GET: api/Tecnicos
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<TecnicosDto>>> GetTecnicos()
+    {
+        return await tecnicosService.Listar(p => true);
+    }
+
+    // GET: api/Tecnicos/5
+    [HttpGet("{id}")]
+    public async Task<ActionResult<TecnicosDto>> GetTecnicos(int id)
+    {
+        return await tecnicosService.Buscar(id);
+    }
+
+    // PUT: api/Tecnicos/5
+    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    [HttpPut("{id}")]
+    public async Task<IActionResult> PutTecnicos(int id, TecnicosDto tecnicosDto)
+    {
+
+        if (id != tecnicosDto.TecnicoId)
+        {
+            return BadRequest();
+        }
+        await tecnicosService.Guardar(tecnicosDto);
+        return NoContent();
+    }
+
+    // POST: api/Tecnicos
+    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    [HttpPost]
+    public async Task<ActionResult<Tecnico>> PostTecnicos(TecnicosDto tecnicosDto)
+    {
+        await tecnicosService.Guardar(tecnicosDto);
+
+        return CreatedAtAction("GetTecnicos", new { id = tecnicosDto.TecnicoId }, tecnicosDto);
+    }
+
+    // DELETE: api/Tecnicos/5
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteTecnicos(int id)
+    {
+        await tecnicosService.Eliminar(id);
+        return NoContent();
+    }
+}
