@@ -5,21 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tecnicos.Data.Models
+namespace Sistemas.Data.Models;
+
+public class Tecnico
 {
-    public class Tecnico
-    {
-        [Key]
-        public int TecnicoId { get; set; }
+    [Key]
+    public int TecnicoId { get; set; }
 
-        [Required(ErrorMessage = "Campo Obligatorio")]
-        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Solo se Permiten Letras")]
+    [Required(ErrorMessage = "Campo Obligatorio")]
+    [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Solo se Permiten Letras")]
 
-        public string? Nombre { get; set; }
+    public string? Nombre { get; set; }
 
-        [Required(ErrorMessage = "Campo Obligatorio")]
-        [RegularExpression(@"^\d+(\.\d{1,2})?$", ErrorMessage = "Solo se permiten numeros")]
-        public double Sueldo { get; set; }
+    [Required(ErrorMessage = "Campo Obligatorio")]
+    [RegularExpression(@"^\d+(\.\d{1,2})?$", ErrorMessage = "Solo se permiten numeros")]
+    public double Sueldo { get; set; }
 
-    }
 }

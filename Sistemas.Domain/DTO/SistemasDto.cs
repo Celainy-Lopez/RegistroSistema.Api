@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sistemas.Domain.DTO
+namespace Sistemas.Domain.DTO;
+
+public class SistemasDto
 {
-    public class SistemasDto
-    {
-        public int SistemaId { get; set; }
+    public int SistemaId { get; set; }
 
-        public string Nombre { get; set; }
-        public string Descripcion { get; set; }
+    public string Nombre { get; set; }
+    public string Descripcion { get; set; }
 
-        public double Costo { get; set; }
-    }
+    public double Costo { get; set; }
 }
